@@ -12,5 +12,3 @@ function TourismCard({ place }) {
     </div>
   );
 }
-
-export default TourismCard;
