@@ -3,21 +3,27 @@ import React from "react";
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      hasError: false
-    };
+    this.state = { hasError: false };
   }
 
   static getDerivedStateFromError() {
-    return {
-      hasError: true
-    };
+    // Update state so next render shows fallback UI
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    // You can log errors to an external service here
+    console.error("Error caught by ErrorBoundary:", error, errorInfo);
   }
 
   render() {
     if (this.state.hasError) {
-      return <h2>Something Went Wrong</h2>;
+      return (
+        <div style={{ padding: "2rem", textAlign: "center", color: "red" }}>
+          <h2>⚠️ Something went wrong.</h2>
+          <p>Please try refreshing the page or contact support.</p>
+        </div>
+      );
     }
 
     return this.props.children;
