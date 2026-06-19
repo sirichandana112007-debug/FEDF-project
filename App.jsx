@@ -1,8 +1,8 @@
-import TourismHome from "./TourismHome";
-import TourismList from "./TourismList";
-import Contact from "./Contact";
+import TourismHome from "./TourismHome.jsx";
+import TourismList from "./TourismList.jsx";
+import Contact from "./Contact.jsx";
 
-function App() {
+export default function App() {
   return (
     <>
       <TourismHome />
@@ -12,4 +12,3 @@ function App() {
   );
 }
 
-export default App;
